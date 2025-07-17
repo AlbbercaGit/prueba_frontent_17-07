@@ -18,14 +18,21 @@ Esta es una mini-app SPA hecha en React (Next.js) para comprar móviles. Solo ti
    npm run build
    npm start
    ```
+4. Para exportar estático (GitHub Pages):
+   ```bash
+   npm run build
+   npm run export
+   ```
+   El resultado estará en la carpeta `out`.
 
 ## Scripts disponibles
 
-- `npm run dev` - desarrollo
-- `npm run build` - build producción
-- `npm start` - servidor producción
-- `npm run lint` - lint
-- `npm run test` - tests
+-- `npm run dev` - desarrollo
+-- `npm run build` - build producción
+-- `npm start` - servidor producción
+-- `npm run export` - exporta la app como estática en `out` (para GitHub Pages)
+-- `npm run lint` - lint
+-- `npm run test` - tests
 
 ## Estructura
 
@@ -45,6 +52,8 @@ Endpoints:
 - POST /api/cart
 
 ## Notas
+- Para desplegar en GitHub Pages, asegúrate de tener el workflow `.github/workflows/gh-pages.yml` y que la carpeta `out` se genere correctamente con `npm run export`.
+- Si tu repositorio no está en la raíz de GitHub Pages, configura `assetPrefix` y `basePath` en `next.config.js`.
 
 - No se usa TypeScript
 - Todo el estado se gestiona con hooks
