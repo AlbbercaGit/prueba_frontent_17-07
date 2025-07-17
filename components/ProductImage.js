@@ -1,7 +1,6 @@
 "use client"
 
 import { ImageIcon } from "lucide-react"
-import Image from "next/image"
 
 export default function ProductImage({ product }) {
   return (
@@ -14,9 +13,10 @@ export default function ProductImage({ product }) {
             <span className="retro-text text-sm text-black">🖼️ VISTA PREVIA DEL PRODUCTO</span>
           </div>
           <div className="flex space-x-1">
-            <div className="w-3 h-3 bg-retro-yellow border border-black"></div>
-            <div className="w-3 h-3 bg-retro-orange border border-black"></div>
-            <div className="w-3 h-3 bg-red-500 border border-black"></div>
+            {/* Cambiamos los divs por botones con estilo retro-button-mini */}
+            <button className="retro-button-mini bg-retro-yellow"></button>
+            <button className="retro-button-mini bg-retro-orange"></button>
+            <button className="retro-button-mini bg-red-500"></button>
           </div>
         </div>
       </div>
@@ -25,21 +25,17 @@ export default function ProductImage({ product }) {
         {/* Área de imagen */}
         <div className="retro-3d-box bg-retro-cyan p-8 h-96 flex flex-col items-center justify-center">
           {product.imgUrl ? (
-            <Image
+            <img
               src={product.imgUrl || "/placeholder.svg"}
               alt={`${product.brand} ${product.model}`}
-              width={200}
-              height={200}
-              className="max-w-full max-h-80 object-contain pixel-perfect"
+              className="max-w-full max-h-88 object-contain pixel-perfect"
             />
           ) : (
             <div className="text-center">
               <div className="retro-folder bg-retro-blue w-32 h-24 flex items-center justify-center mb-4">
                 <ImageIcon className="w-12 h-12 text-white" />
               </div>
-              <div className="retro-text text-black">
-                📷 Imagen no disponible
-              </div>
+              <div className="retro-text text-black">📷 Imagen no disponible</div>
             </div>
           )}
         </div>

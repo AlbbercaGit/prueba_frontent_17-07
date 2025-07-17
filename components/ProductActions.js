@@ -1,6 +1,6 @@
 "use client"
 
-import { ShoppingCart, Settings } from "lucide-react"
+import { ShoppingCart, Settings, Plus, Minus } from "lucide-react" // Importar Plus y Minus
 
 export default function ProductActions({
   product,
@@ -9,6 +9,8 @@ export default function ProductActions({
   onColorChange,
   onStorageChange,
   onAddToCart,
+  quantity, // Recibir la cantidad
+  onQuantityChange, // Recibir el setter de cantidad
 }) {
   return (
     <div className="retro-window bg-retro-mint">
@@ -20,9 +22,10 @@ export default function ProductActions({
             <span className="retro-text text-sm text-black">⚙️ CONFIGURACIÓN DEL PRODUCTO</span>
           </div>
           <div className="flex space-x-1">
-            <div className="w-3 h-3 bg-retro-yellow border border-black"></div>
-            <div className="w-3 h-3 bg-retro-orange border border-black"></div>
-            <div className="w-3 h-3 bg-red-500 border border-black"></div>
+            {/* Cambiamos los divs por botones con estilo retro-button-mini */}
+            <button className="retro-button-mini bg-retro-yellow"></button>
+            <button className="retro-button-mini bg-retro-orange"></button>
+            <button className="retro-button-mini bg-red-500"></button>
           </div>
         </div>
       </div>
@@ -69,6 +72,32 @@ export default function ProductActions({
                 <span className="retro-text text-black">{storage.name}</span>
               </button>
             ))}
+          </div>
+        </div>
+
+        {/* Selector de Cantidad */}
+        <div className="retro-3d-box bg-white p-4">
+          <div className="retro-text text-black mb-3 flex items-center space-x-2">
+            <span>🔢</span>
+            <span>Cantidad:</span>
+          </div>
+          <div className="flex items-center justify-center space-x-3">
+            <button
+              onClick={() => onQuantityChange(Math.max(1, quantity - 1))} // Mínimo 1
+              className="retro-button bg-retro-gray px-3 py-2"
+            >
+              <Minus className="w-4 h-4 text-black" />
+            </button>
+            <input
+              type="number"
+              value={quantity}
+              onChange={(e) => onQuantityChange(Math.max(1, Number(e.target.value) || 1))} // Mínimo 1
+              className="retro-input w-20 text-center text-black"
+              min="1"
+            />
+            <button onClick={() => onQuantityChange(quantity + 1)} className="retro-button bg-retro-gray px-3 py-2">
+              <Plus className="w-4 h-4 text-black" />
+            </button>
           </div>
         </div>
 

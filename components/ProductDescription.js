@@ -13,9 +13,10 @@ export default function ProductDescription({ product }) {
             <span className="retro-text text-sm text-black">📋 ESPECIFICACIONES TÉCNICAS</span>
           </div>
           <div className="flex space-x-1">
-            <div className="w-3 h-3 bg-retro-yellow border border-black"></div>
-            <div className="w-3 h-3 bg-retro-orange border border-black"></div>
-            <div className="w-3 h-3 bg-red-500 border border-black"></div>
+            {/* Cambiamos los divs por botones con estilo retro-button-mini */}
+            <button className="retro-button-mini bg-retro-yellow"></button>
+            <button className="retro-button-mini bg-retro-orange"></button>
+            <button className="retro-button-mini bg-red-500"></button>
           </div>
         </div>
       </div>

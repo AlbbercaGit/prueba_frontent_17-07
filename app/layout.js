@@ -8,7 +8,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="es">
-      <body className="antialiased">{children}</body>
+      {/* Añadimos la clase scanline-background al body */}
+      <body className="antialiased scanline-background">{children}</body>
     </html>
   )
 }
