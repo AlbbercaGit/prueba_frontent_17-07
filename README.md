@@ -52,8 +52,6 @@ Endpoints:
 - POST /api/cart
 
 ## Notas
-- Para desplegar en GitHub Pages, asegúrate de tener el workflow `.github/workflows/gh-pages.yml` y que la carpeta `out` se genere correctamente con `npm run export`.
-- Si tu repositorio no está en la raíz de GitHub Pages, configura `assetPrefix` y `basePath` en `next.config.js`.
 
 - No se usa TypeScript
 - Todo el estado se gestiona con hooks
